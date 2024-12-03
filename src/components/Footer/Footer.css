@@ -1,0 +1,14 @@
+.footer-root{
+    border-top: 2px solid rgba(0, 0, 0, 0.4) ;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.footer-root a{
+    color: black;
+    text-decoration: none;
+    font-family: "Jura";
+    font-size: 30px;
+}

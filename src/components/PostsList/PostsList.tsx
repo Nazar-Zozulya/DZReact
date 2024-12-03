@@ -1,4 +1,5 @@
-import { Post } from './Post';
+import { Post } from '../Post/Post';
+import './PostsList.css'
 
 export function PostList(){
     const postList = [
@@ -10,7 +11,7 @@ export function PostList(){
         {id: 5, title: '6 post', description: '6 description', src: 'https://i.ytimg.com/vi/lhLA7w9wlfE/hqdefault.jpg', author: 'mark a4'}
     ]
     return (
-        <div>
+        <div className="posts-list-root">
             <h1>Усі <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley">пости:</a></h1>
             {postList.map( (post) => {
                 return <Post title= {post.title} description= {post.description} src= {post.src} author= {post.author}></Post>
