@@ -4,3 +4,14 @@
     justify-content: start;
     flex-direction: column;
 }
+
+.select-category{
+    /* width: 30%; */
+    margin-top: 30px;
+    height: 50px;
+    text-align: center;
+    border-radius: 15px;
+    border: 2px solid black;
+    font-size: 30px;
+    font-family: "Jura";
+}
