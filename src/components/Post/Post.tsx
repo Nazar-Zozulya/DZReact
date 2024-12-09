@@ -1,9 +1,12 @@
-import { useState } from "react"
+import { useState  } from "react"
+import { Link } from "react-router-dom";
 import './Post.css'
 
 interface IPostProps {
+    id: number;
     title: string;
     description: string;
+    category: string;
     src: string;
     author: string;
 }
@@ -23,9 +26,12 @@ export function Post(props: IPostProps){
     return (
         <div className="post-root">
             <p className="author">{props.author}</p>
+            <p className="author">{props.category}</p>
             <h1 className="title">{props.title}</h1>
             <p className="description">{props.description}</p>
-            <img className='post-img' src={props.src} alt="" />
+            <Link to={`/post/${props.id}`}>
+                <img className='post-img' src={props.src} alt="" />
+            </Link>
             <div className="like">
                 <p>{like}</p>
                 <button onClick={addLike} disabled={disable}>add like</button>
