@@ -8,14 +8,16 @@ import { NotFound } from "./NotFound/NotFound"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 export function App(){
+
     return(
         <div>
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<Layout></Layout>}>
+
                         <Route path="/posts" element={<PostsList></PostsList>}></Route>
                         <Route path="/post/:id" element={<PostPage></PostPage>}></Route>
-                        <Route path="/error" element={<NotFound></NotFound>}></Route>
+                        <Route path="*" element={<NotFound></NotFound>}></Route>
                     </Route>
                 </Routes>
             </BrowserRouter>
