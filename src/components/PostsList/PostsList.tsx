@@ -4,12 +4,12 @@ import './PostsList.css'
 
 export function PostsList(){
     const postList = [
-        {id: 0, tags:'boss', title: '1 post', description: '1 description', social_image: 'https://i.ytimg.com/vi/lhLA7w9wlfE/hqdefault.jpg', author: 'a4'},
-        {id: 1, tags:'canon gang', title: '2 post', description: '2 description', social_image: 'https://i.ytimg.com/vi/lhLA7w9wlfE/hqdefault.jpg', author: 'glent'},
-        {id: 2, tags:'canon gang', title: '3 post', description: '3 description', social_image: 'https://i.ytimg.com/vi/lhLA7w9wlfE/hqdefault.jpg', author: 'kobyakov'},
-        {id: 3, tags:'canon gang', title: '4 post', description: '4 description', social_image: 'https://i.ytimg.com/vi/lhLA7w9wlfE/hqdefault.jpg', author: 'serega a4'},
-        {id: 4, tags:'woman', title: '5 post', description: '5 description', social_image: 'https://i.ytimg.com/vi/lhLA7w9wlfE/hqdefault.jpg', author: 'rivivi'},
-        {id: 5, tags:'bad gang', title: '6 post', description: '6 description', social_image: 'https://i.ytimg.com/vi/lhLA7w9wlfE/hqdefault.jpg', author: 'mark a4'}
+        {id: 0, tags:'boss', title: '1 post', description: '1 description', social_image: 'https://i.ytimg.com/vi/lhLA7w9wlfE/hqdefault.jpg', username: 'a4'},
+        {id: 1, tags:'canon gang', title: '2 post', description: '2 description', social_image: 'https://i.ytimg.com/vi/lhLA7w9wlfE/hqdefault.jpg', username: 'glent'},
+        {id: 2, tags:'canon gang', title: '3 post', description: '3 description', social_image: 'https://i.ytimg.com/vi/lhLA7w9wlfE/hqdefault.jpg', username: 'kobyakov'},
+        {id: 3, tags:'canon gang', title: '4 post', description: '4 description', social_image: 'https://i.ytimg.com/vi/lhLA7w9wlfE/hqdefault.jpg', username: 'serega a4'},
+        {id: 4, tags:'woman', title: '5 post', description: '5 description', social_image: 'https://i.ytimg.com/vi/lhLA7w9wlfE/hqdefault.jpg', username: 'rivivi'},
+        {id: 5, tags:'bad gang', title: '6 post', description: '6 description', social_image: 'https://i.ytimg.com/vi/lhLA7w9wlfE/hqdefault.jpg', username: 'mark a4'}
     ]
 
     const [filteredPosts, setFilteredPosts] = useState(postList)
@@ -49,7 +49,7 @@ export function PostsList(){
 
             <h1>Усі <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley">пости:</a></h1>
             {filteredPosts.map( (post) => {
-                return <Post id= {post.id} title= {post.title} description= {post.description} src= {post.social_image} author= {post.author} category= {post.tags}></Post>
+                return <Post id= {post.id} title= {post.title} description= {post.description} src= {post.social_image} author= {post.username} category= {post.tags}></Post>
             })}
         </div>
     )

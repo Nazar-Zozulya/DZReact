@@ -26,7 +26,7 @@ export function Post(props: IPostProps){
     return (
         <div className="post-root">
             <p className="author">{props.author}</p>
-            <p className="author">{props.category}</p>
+            <p className="category">{props.category}</p>
             <h1 className="title">{props.title}</h1>
             <p className="description">{props.description}</p>
             <Link to={`/post/${props.id}`}>
