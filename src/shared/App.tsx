@@ -2,8 +2,8 @@ import { Layout } from "./Layout/Layout"
 import { Header } from "./Header/Header"
 import { Main} from './Main/Main'
 import { Footer } from "./Footer/Footer"
-import { PostsList } from "./PostsList/PostsList"
-import { PostPage } from "./PostPage/PostPage"
+import { PostsList } from "./PostList/PostList"
+import { PostPage } from "../pages/PostPage/PostPage"
 import { NotFound } from "./NotFound/NotFound"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 

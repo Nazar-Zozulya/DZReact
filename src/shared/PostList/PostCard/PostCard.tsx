@@ -1,6 +1,6 @@
 import { useState  } from "react"
 import { Link } from "react-router-dom";
-import './Post.css'
+import './PostCard.css'
 
 interface IPostProps {
     id: number;
@@ -11,7 +11,7 @@ interface IPostProps {
     author: string;
 }
 
-export function Post(props: IPostProps){
+export function PostCard(props: IPostProps){
     const [like, setLike] = useState(0)
     const [disable, setDisable] = useState(false)
     // const button = document.querySelector('#button')?.ariaDisabled
@@ -25,8 +25,8 @@ export function Post(props: IPostProps){
 
     return (
         <div className="post-root">
-            <p className="author">{props.author}</p>
             <p className="category">{props.category}</p>
+            <p className="author">{props.author}</p>
             <h1 className="title">{props.title}</h1>
             <p className="description">{props.description}</p>
             <Link to={`/post/${props.id}`}>
