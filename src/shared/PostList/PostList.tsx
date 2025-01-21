@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import './PostList.css'
 
 import { usePosts } from '../../hooks/usePosts'
+import { useTags } from '../../hooks/useTags';
 
 export function PostsList(){
     // const postList = [
@@ -17,29 +18,30 @@ export function PostsList(){
     const { posts } = usePosts()
 
     const [filteredPosts, setFilteredPosts] = useState(posts)
-    const [selectedCategory, setSelectedCategory] = useState('all')
+    const [selectedTag, setSelectedTag] = useState('all')
+    const { tags } = useTags()
 
     useEffect(()=>{
-        if(selectedCategory === 'all'){
+        if(selectedTag === 'all'){
             setFilteredPosts(posts)
         } else{
             setFilteredPosts(posts.filter( (posts)=>{
-                return posts.tags === selectedCategory
+                return posts.tags === selectedTag
             }))
         }
-        console.log(selectedCategory)
-    }, [selectedCategory])
+        console.log(selectedTag)
+    }, [selectedTag])
 
     return (
         <div className="posts-list-root">
             <select className='select-category' onChange={(event)=>{
-                setSelectedCategory(event.target.value)
+                setSelectedTag(event.target.value)
             }}>
                 <option value="all">all</option>
-                <option value="boss">boss</option>
-                <option value="canon gang">canon gang</option>
-                <option value="woman">woman</option>
-                <option value="bad gang">bad gang</option>
+                <option value="1231">121311</option>
+                {/* {tags.map(tag => {
+                return <option value={tag}>{tag}</option>
+                })} */}
             </select>
 
             <h1>Усі <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley">пости:</a></h1>
