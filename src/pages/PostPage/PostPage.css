@@ -64,8 +64,15 @@
     flex-direction: row;
 }
 
-.add-like button{
+.NotLiked{
     background-color: #FFCF8E;
+    padding: 10px;
+    border-radius: 15px;
+    border: none;
+}
+
+.Liked{
+    background-color: #faaf00;
     padding: 10px;
     border-radius: 15px;
     border: none;

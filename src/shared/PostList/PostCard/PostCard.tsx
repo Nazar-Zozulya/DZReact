@@ -4,15 +4,6 @@ import './PostCard.css'
 import { likedContext } from "../../../shared/App";
 import { IPosts } from "../../../hooks/usePosts";
 
-interface IPostProps {
-    id: number;
-    title: string;
-    description: string;
-    category: string;
-    src: string;
-    author: string;
-}
-
 export function PostCard(props: IPosts){
     const {addToPost, ...others} = useContext(likedContext)
     const [like, setLike] = useState(0)

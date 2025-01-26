@@ -12,11 +12,13 @@ import { createContext, useState } from "react"
 interface ILikedPosts{
     likedPosts: IPosts[]
     addToPost: (post: IPosts) => void
+    isItLiked: (post: IPosts) => boolean
+    removeLike: (post: IPosts) => void
     // title: string
 
 }
 
-const initialValue: ILikedPosts = {likedPosts: [], addToPost: (post: IPosts) => {}}
+const initialValue: ILikedPosts = {likedPosts: [], addToPost: (post: IPosts) => {}, isItLiked: (post: IPosts) => false, removeLike: (post: IPosts) => {}}
 export const likedContext = createContext< ILikedPosts >(initialValue)
 
 
@@ -24,15 +26,29 @@ export function App(){
 
     const [likedPosts, setLikedPosts] = useState<IPosts[]>([])
 
+    function isItLiked(post:IPosts){
+        if(likedPosts.includes(post)){
+            return true
+        } else{
+            return false
+        }
+    }
+
     function addToPost(post: IPosts){
         let array = [...likedPosts, post]
         setLikedPosts(array)
     }
 
+    function removeLike(post: IPosts){
+        const fitlered = likedPosts.filter((filteredpost) =>  filteredpost !== post )
+        setLikedPosts(fitlered)
+        // return
+    }
+
 
     return(
         <div>
-            <likedContext.Provider value={{likedPosts: likedPosts,addToPost: addToPost}}>
+            <likedContext.Provider value={{likedPosts: likedPosts, addToPost: addToPost, isItLiked:isItLiked, removeLike:removeLike}}>
                 <BrowserRouter>
                     <Routes>
                         <Route path="/" element={<Layout></Layout>}>

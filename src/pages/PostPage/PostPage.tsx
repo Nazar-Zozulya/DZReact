@@ -9,20 +9,35 @@ import { likedContext } from "../../shared/App";
 export function PostPage(){
     const params = useParams();
 
-    const {addToPost, ...others} = useContext(likedContext);
+    const {addToPost, removeLike, isItLiked} = useContext(likedContext);
 
     const { post, isLoading } = usePostById(Number(params.id)) 
 
     const [like, setLike] = useState(0)
-    const [disable, setDisable] = useState(false)
+    // const [disable, setDisable] = useState(false)
+    const [isLiked, setIsLiked] = useState('NotLiked')
 
     function addLike() {
         if(post === undefined){
             return
         }
-        addToPost(post)
-        setLike(like+1)
-        setDisable(true)
+
+        const itIsLikedFunc = isItLiked(post)
+
+        if(itIsLikedFunc === false){
+            setIsLiked('Liked')
+            addToPost(post)
+            setLike(like+1)
+        // setDisable(true)
+        }else{
+            setIsLiked('NotLiked')
+            removeLike(post)
+            setLike(like-1)
+        }
+
+        // addToPost(post)
+        // setLike(like+1)
+        // setDisable(true)
     }
 
     return( <div>
@@ -43,7 +58,7 @@ export function PostPage(){
                     <p className="author">{post?.username}</p>
                     <div className="add-like">
                         <p>{like}</p>
-                        <button onClick={addLike} disabled={disable}>add like</button>
+                        <button onClick={addLike} className={isLiked}>add like</button>
                     </div>
                 </div>
             </div>
