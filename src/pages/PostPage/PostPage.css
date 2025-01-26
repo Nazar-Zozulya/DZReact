@@ -58,3 +58,23 @@
     font-family: "Jura";
     font-size: 32px;
 }
+
+.add-like{
+    display: flex;
+    flex-direction: row;
+}
+
+.add-like button{
+    background-color: #FFCF8E;
+    padding: 10px;
+    border-radius: 15px;
+    border: none;
+}
+
+.add-like p{
+    color: black;
+    text-decoration: none;
+    font-family: "Jura";
+    font-size: 32px;
+    text-decoration: none;
+}

@@ -1,6 +1,8 @@
-import { useState  } from "react"
+import { useContext, useState  } from "react"
 import { Link } from "react-router-dom";
 import './PostCard.css'
+import { likedContext } from "../../../shared/App";
+import { IPosts } from "../../../hooks/usePosts";
 
 interface IPostProps {
     id: number;
@@ -11,11 +13,13 @@ interface IPostProps {
     author: string;
 }
 
-export function PostCard(props: IPostProps){
+export function PostCard(props: IPosts){
+    const {addToPost, ...others} = useContext(likedContext)
     const [like, setLike] = useState(0)
     const [disable, setDisable] = useState(false)
     // const button = document.querySelector('#button')?.ariaDisabled
     function addLike() {
+        addToPost(props)
         setLike(like+1)
         setDisable(true)
     }
@@ -25,12 +29,12 @@ export function PostCard(props: IPostProps){
 
     return (
         <div className="post-root">
-            <p className="category">{props.category}</p>
-            <p className="author">{props.author}</p>
+            <p className="category">{props.tags}</p>
+            <p className="author">{props.username}</p>
             <h1 className="title">{props.title}</h1>
             <p className="description">{props.description}</p>
             <Link to={`/post/${props.id}`}>
-                <img className='post-img' src={props.src} alt="" />
+                <img className='post-img' src={props.social_image} alt="" />
             </Link>
             <div className="like">
                 <p>{like}</p>
@@ -39,4 +43,8 @@ export function PostCard(props: IPostProps){
         </div>
 
     )
+}
+
+function userContext(likedContext: any): { [x: string]: any; addToPost: any; } {
+    throw new Error("Function not implemented.");
 }

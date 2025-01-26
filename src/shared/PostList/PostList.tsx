@@ -30,23 +30,23 @@ export function PostsList(){
             }))
         }
         console.log(selectedTag)
-    }, [selectedTag])
+    }, [selectedTag, posts])
 
     return (
         <div className="posts-list-root">
-            <select className='select-category' onChange={(event)=>{
+            {/* <select className='select-category' onChange={(event)=>{
                 setSelectedTag(event.target.value)
             }}>
                 <option value="all">all</option>
-                <option value="1231">121311</option>
+                <option value="1231">121311</option> */}
                 {/* {tags.map(tag => {
                 return <option value={tag}>{tag}</option>
                 })} */}
-            </select>
+            {/* </select> */}
 
             <h1>Усі <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley">пости:</a></h1>
             {filteredPosts.map( (post) => {
-                return <PostCard id= {post.id} title= {post.title} description= {post.description} src= {post.social_image} author= {post.username} category= {post.tags}></PostCard>
+                return <PostCard id= {post.id} title= {post.title} description= {post.description} social_image= {post.social_image} username= {post.username} tags= {post.tags}></PostCard>
             })}
         </div>
     )
