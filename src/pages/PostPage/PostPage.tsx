@@ -4,7 +4,7 @@ import './PostPage.css'
 import { usePostById } from "../../hooks/usePostById";
 import { Audio } from 'react-loader-spinner'
 import { useContext } from "react";
-import { likedContext } from "../../shared/App";
+import { likedContext } from "../../context/likedContext";
 
 export function PostPage(){
     const params = useParams();

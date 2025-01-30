@@ -5,7 +5,7 @@ import './PostList.css'
 import { usePosts } from '../../hooks/usePosts'
 import { useTags } from '../../hooks/useTags';
 
-export function PostsList(){
+export function PostList(){
     // const postList = [
     //     {id: 0, tags:'boss', title: '1 post', description: '1 description', social_image: 'https://i.ytimg.com/vi/lhLA7w9wlfE/hqdefault.jpg', username: 'a4'},
     //     {id: 1, tags:'canon gang', title: '2 post', description: '2 description', social_image: 'https://i.ytimg.com/vi/lhLA7w9wlfE/hqdefault.jpg', username: 'glent'},

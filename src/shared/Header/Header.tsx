@@ -13,6 +13,9 @@ export function Header(){
             <Link to={"/posts"}>
                 <button className="header-button" ><p>Posts</p></button>
             </Link>
+            <Link to={"/liked-posts"}>
+                <button className="header-button" ><p>Liked Posts</p></button>
+            </Link>
         </div>
     )
 }

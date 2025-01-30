@@ -1,18 +1,35 @@
 import { useContext, useState  } from "react"
 import { Link } from "react-router-dom";
 import './PostCard.css'
-import { likedContext } from "../../../shared/App";
+import { likedContext } from "../../../context/likedContext";
 import { IPosts } from "../../../hooks/usePosts";
 
 export function PostCard(props: IPosts){
-    const {addToPost, ...others} = useContext(likedContext)
+    const {addToPost, removeLike , isItLiked ,...others} = useContext(likedContext)
     const [like, setLike] = useState(0)
-    const [disable, setDisable] = useState(false)
+    // const [disable, setDisable] = useState(false)
+
+    const [isLiked, setIsLiked] = useState('NotLiked')
     // const button = document.querySelector('#button')?.ariaDisabled
     function addLike() {
-        addToPost(props)
-        setLike(like+1)
-        setDisable(true)
+
+        const itIsLikedFunc = isItLiked(props)
+        // alert(others)
+
+        if(itIsLikedFunc === false){
+            setIsLiked('Liked')
+            addToPost(props)
+            setLike(like+1)
+        // setDisable(true)
+        }else{
+            setIsLiked('NotLiked')
+            removeLike(props)
+            setLike(like-1)
+        }
+
+        // addToPost(post)
+        // setLike(like+1)
+        // setDisable(true)
     }
 
     // if (like === true){
@@ -29,7 +46,7 @@ export function PostCard(props: IPosts){
             </Link>
             <div className="like">
                 <p>{like}</p>
-                <button onClick={addLike} disabled={disable}>add like</button>
+                <button onClick={addLike} className={isLiked} >add like</button>
             </div>
         </div>
 
@@ -39,3 +56,7 @@ export function PostCard(props: IPosts){
 function userContext(likedContext: any): { [x: string]: any; addToPost: any; } {
     throw new Error("Function not implemented.");
 }
+function removeLike(props: IPosts) {
+    throw new Error("Function not implemented.");
+}
+

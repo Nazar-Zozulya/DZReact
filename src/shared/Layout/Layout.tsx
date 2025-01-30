@@ -2,7 +2,6 @@ import { ReactNode } from "react"
 import './Layout.css'
 import { Header } from "../Header/Header"
 import { Main } from  "../Main/Main"
-import { PostsList } from "../PostList/PostList"
 import { Footer } from "../Footer/Footer"
 import { Outlet } from "react-router-dom"
 
