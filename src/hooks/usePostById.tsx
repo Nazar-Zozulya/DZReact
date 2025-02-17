@@ -7,7 +7,7 @@ export function usePostById(id: number){
 
     useEffect(() => {
         async function getPost() {
-            const response = await fetch(`https://dev.to/api/articles/${id}`)
+            const response = await fetch(`http://localhost:8000/api/product/${id}`)
             const post = await response.json()
             setPost(post)
             setIsLoading(false)

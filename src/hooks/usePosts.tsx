@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react'
 
 export interface IPosts{
+    name: string;
     id: number;
-    username: string;
-    tags: string;
-    title: string;
+    author: string;
     description: string;
-    social_image: string;
 }
 
 
@@ -16,7 +14,7 @@ export function usePosts(){
 
     useEffect(()=>{
         async function getPosts(){
-            const response = await fetch('https://dev.to/api/articles')
+            const response = await fetch('http://localhost:8000/api/product/all')
             const posts = await response.json()
             setPosts(posts)
         }

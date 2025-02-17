@@ -9,11 +9,11 @@ export function LikedPostsPage(){
             {likedPosts.map((post)=>{
                 return(
                     <div>
-                        <img src={post.social_image} alt="" />
-                        <h1>{post.title}</h1>
-                        <p>{post.tags}</p>
+                        {/* <img src={post.social_image} alt="" /> */}
+                        <h1>{post.name}</h1>
+                        {/* <p>{post.tags}</p> */}
                         <p>{post.description}</p>
-                        <p>{post.username}</p>
+                        <p>{post.author}</p>
                     </div>
                 )
             })}

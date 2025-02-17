@@ -49,13 +49,13 @@ export function PostPage(){
                                 ariaLabel="three-dots-loading"/>) : (
             <>
             <div className="post">
-                <img src={post?.social_image} alt="" />
+                {/* <img src={post?.social_image} alt="" /> */}
                 <div className="line"></div>
                 <div className="text">
-                    <h1 className="title">{post?.title}</h1>
-                    <p className="category">{post?.tags}</p>
+                    <h1 className="title">{post?.name}</h1>
+                    {/* <p className="category">{post?.tags}</p> */}
                     <p className="description">{post?.description}</p>
-                    <p className="author">{post?.username}</p>
+                    <p className="author">{post?.author}</p>
                     <div className="add-like">
                         <p>{like}</p>
                         <button onClick={addLike} className={isLiked}>add like</button>

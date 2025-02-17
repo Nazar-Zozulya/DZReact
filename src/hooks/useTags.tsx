@@ -1,8 +1,12 @@
 import { useEffect, useState } from 'react'
 
 interface ITags{
-    // id: number;
-    name: string
+    comment: string;
+    id: number;
+    title: string;
+    img: string | null;
+    postId: number;
+    userId: number;
 }
 
 export function useTags() {
@@ -10,7 +14,7 @@ export function useTags() {
 
     useEffect(()=>{
         async function getTags(){
-            const response = await fetch('https://dev.to/api/tags')
+            const response = await fetch('https://dev.to/api/comment/all')
             const tags = await response.json()
             setTags(tags)
         }
