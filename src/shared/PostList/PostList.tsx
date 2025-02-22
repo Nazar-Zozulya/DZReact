@@ -21,16 +21,16 @@ export function PostList(){
     const [selectedTag, setSelectedTag] = useState('all')
     const { tags } = useTags()
 
-    useEffect(()=>{
-        if(selectedTag === 'all'){
-            setFilteredPosts(posts)
-        } else{
-            setFilteredPosts(posts.filter( (posts)=>{
-                return posts.tags === selectedTag
-            }))
-        }
-        console.log(selectedTag)
-    }, [selectedTag, posts])
+    // useEffect(()=>{
+    //     if(selectedTag === 'all'){
+    //         setFilteredPosts(posts)
+    //     } else{
+    //         setFilteredPosts(posts.filter( (posts)=>{
+    //             // return posts.tags === selectedTag
+    //         // }))
+    //     }
+    //     console.log(selectedTag)
+    // }, [selectedTag, posts])
 
     return (
         <div className="posts-list-root">
@@ -46,7 +46,13 @@ export function PostList(){
 
             <h1>Усі <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley">пости:</a></h1>
             {filteredPosts.map( (post) => {
-                return <PostCard id= {post.id} title= {post.title} description= {post.description} social_image= {post.social_image} username= {post.username} tags= {post.tags}></PostCard>
+                return <PostCard id= {post.id}
+                name= {post.name}
+                description= {post.description} 
+                // social_image= {post.social_image} 
+                author= {post.author} 
+                // tags= {post.tags}
+                ></PostCard>
             })}
         </div>
     )

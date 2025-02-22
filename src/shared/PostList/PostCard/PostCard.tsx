@@ -37,12 +37,12 @@ export function PostCard(props: IPosts){
 
     return (
         <div className="post-root">
-            <p className="category">{props.tags}</p>
-            <p className="author">{props.username}</p>
-            <h1 className="title">{props.title}</h1>
-            <p className="description">{props.description}</p>
+            {/* <p className="category">{props.}</p> */}
             <Link to={`/post/${props.id}`}>
-                <img className='post-img' src={props.social_image} alt="" />
+                <p className="author">{props.author}</p>
+                <h1 className="title">{props.name}</h1>
+                <p className="description">{props.description}</p>
+                    {/* <img className='post-img' src={props.social_image} alt="" /> */}
             </Link>
             <div className="like">
                 <p>{like}</p>
