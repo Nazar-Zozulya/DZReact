@@ -9,6 +9,7 @@ interface ILoginForm {
 // yup validation
 export function LoginPage (){
     // Пишем скобки, которые отвечают за то, что мы будем деструктуризировать
+    // register в данном случае не нужно деструктуризировать
     const {register: register, handleSubmit, formState} = useForm <ILoginForm>({
         mode: 'onSubmit'
     })

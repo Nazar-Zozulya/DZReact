@@ -5,14 +5,18 @@ import { likedContext } from "../../../context/likedContext";
 import { IPosts } from "../../../hooks/usePosts";
 
 export function PostCard(props: IPosts){
+    // others? не надо
+    // здесь вместо подключения useContext и вытягивания самого контекста, можно сделать хук useLikedPostsContext и использовать здесь. он будет делать тот же useContext, но тогда тебе не придется вытягивать объек контекста
+
     const {addToPost, removeLike , isItLiked ,...others} = useContext(likedContext)
+    // лайки если сильно хочется, лучше сделать атрибутом модели на BackEnd
     const [like, setLike] = useState(0)
     // const [disable, setDisable] = useState(false)
-
+    // за это отвечает функция isItLiked
     const [isLiked, setIsLiked] = useState('NotLiked')
     // const button = document.querySelector('#button')?.ariaDisabled
     function addLike() {
-
+        // здесь ты вызываешь функцию, а не получаешь ее, поэтому переменную лучше назват isPostLiked
         const itIsLikedFunc = isItLiked(props)
         // alert(others)
 
@@ -46,13 +50,14 @@ export function PostCard(props: IPosts){
             </Link>
             <div className="like">
                 <p>{like}</p>
+                {/* вместо isLiked состояния, можно сделать условие isItLiked(post.id) ? 'liked' : 'not-liked' */}
                 <button onClick={addLike} className={isLiked} >add like</button>
             </div>
         </div>
 
     )
 }
-
+// del
 function userContext(likedContext: any): { [x: string]: any; addToPost: any; } {
     throw new Error("Function not implemented.");
 }

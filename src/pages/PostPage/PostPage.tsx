@@ -1,3 +1,4 @@
+// Импорт не используется, нужно убрать
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import './PostPage.css'
@@ -8,11 +9,12 @@ import { likedContext } from "../../context/likedContext";
 
 export function PostPage(){
     const params = useParams();
-
+    // тоже самое что в PostCard
     const {addToPost, removeLike, isItLiked} = useContext(likedContext);
-
+    // error
     const { post, isLoading } = usePostById(Number(params.id)) 
-
+    // идет повторение кода, можно сделать отедльный компонент кнопка лайка и туда вынести все относящееся к лайку поста
+    // те же ошибки что и в PostCard 
     const [like, setLike] = useState(0)
     // const [disable, setDisable] = useState(false)
     const [isLiked, setIsLiked] = useState('NotLiked')

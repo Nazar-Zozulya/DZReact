@@ -12,6 +12,7 @@ interface ILikedPosts{
 }
 
 interface ILikedPostsChildren{
+    // детей лучше сделать необязательными
     children: ReactNode
 }
 
@@ -21,12 +22,14 @@ const initialValue: ILikedPosts = {
     isItLiked: (post: IPosts) => false, 
     removeLike: (post: IPosts) => {}
 }
+// экспортировать контекст не хорошая практика лучше сделать хук, который вытягивает контекст с помощью useContext
 export const likedContext = createContext< ILikedPosts >(initialValue)
-
+// useLikedPostsContext 
 export function LikedContextProvider(props:ILikedPostsChildren){
     const [likedPosts, setLikedPosts] = useState<IPosts[]>([])
     
     function isItLiked(post:IPosts){
+        // надо проверять по id постов, тк в жс сравнение объектов работает иным образом и два, вроде бы одинаковых объекта не равны
         if(likedPosts.includes(post)){
             return true
         } else{

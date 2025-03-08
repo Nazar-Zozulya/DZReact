@@ -44,7 +44,7 @@
     height: 60px;
     margin-right: 20px;
 }
-
+/* тега линк не существует, все компоненты Link это тег <a> */
 Link{
     text-decoration: none;
     border: none;
