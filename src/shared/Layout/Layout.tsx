@@ -4,12 +4,9 @@ import { Header } from "../Header/Header"
 import { Main } from  "../Main/Main"
 import { Footer } from "../Footer/Footer"
 import { Outlet } from "react-router-dom"
-// не пользуемся props для Layout, можно удалить
-interface ILayoutProps {
-    children?: ReactNode
-}
-//                      тоже
-export function Layout(props: ILayoutProps){
+
+
+export function Layout(){
     return (
         <div className="layout">
             <Header></Header>

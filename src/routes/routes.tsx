@@ -16,11 +16,10 @@ export function AppRoutes(){
                 <Route path="/" element={<Layout></Layout>}>
                     <Route path="/posts" element={<PostListPage></PostListPage>}></Route>
                     <Route path="/post/:id" element={<PostPage></PostPage>}></Route>
-                    {/* лучше поставить последним рутом */}
-                    <Route path="*" element={<NotFound></NotFound>}></Route>
                     <Route path="/liked-posts" element={<LikedPostsPage ></LikedPostsPage>}></Route>
                     <Route path="/login" element={<LoginPage></LoginPage>}></Route>
                     <Route path="/reg" element={<RegPage></RegPage>}></Route>
+                    <Route path="*" element={<NotFound></NotFound>}></Route>
                 </Route>
             </Routes>
         </BrowserRouter>

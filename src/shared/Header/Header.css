@@ -37,15 +37,14 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    /* padding-right: 20px; */
 }
 
 .search-bar img{
     height: 60px;
     margin-right: 20px;
 }
-/* тега линк не существует, все компоненты Link это тег <a> */
-Link{
+
+a{
     text-decoration: none;
     border: none;
 }
