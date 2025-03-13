@@ -6,6 +6,7 @@ import { NotFound } from "../shared/NotFound/NotFound";
 import { LikedPostsPage } from "../pages/LikedPostsPage/LikedPostsPage";
 import { LoginPage } from "../pages/LoginPage/LoginPage";
 import { RegPage } from "../pages/RegPage/RegPage";
+import { UserPage } from "../pages/UserPage/UserPage";
 
 
 
@@ -20,6 +21,7 @@ export function AppRoutes(){
                     <Route path="/login" element={<LoginPage></LoginPage>}></Route>
                     <Route path="/reg" element={<RegPage></RegPage>}></Route>
                     <Route path="*" element={<NotFound></NotFound>}></Route>
+                    <Route path="/user" element={<UserPage></UserPage>}></Route>
                 </Route>
             </Routes>
         </BrowserRouter>

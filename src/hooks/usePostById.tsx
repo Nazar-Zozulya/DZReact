@@ -1,8 +1,25 @@
 import { useState, useEffect } from 'react'
 import { IPosts } from './usePosts'
+import { ITags } from './useTags';
+
+interface IComment{
+    comment: string;
+    id: number;
+    title: string;
+    img: string | null;
+}
+
+interface IPostsWithComments{
+    name: string;
+    id: number;
+    author: string;
+    description: string;
+    tags: ITags
+    comments: IComment[]
+}
 
 export function usePostById(id: number){
-    const [post, setPost] = useState<IPosts>()
+    const [post, setPost] = useState<IPostsWithComments>()
     // изначально false
     const [isLoading, setIsLoading] = useState(false)
     // error
